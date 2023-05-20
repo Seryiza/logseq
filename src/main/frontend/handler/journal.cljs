@@ -16,6 +16,10 @@
   []
   (redirect-to-journal! (date/tomorrow)))
 
+(defn go-to-today!
+  []
+  (redirect-to-journal! (date/today)))
+
 (defn- get-current-journal
   []
   (let [current-page (state/get-current-page)]

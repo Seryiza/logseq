@@ -73,10 +73,10 @@
 
    :whiteboard/select            {:binding ["1" "w s"]
                                   :fn      #(.selectTool ^js (state/active-tldraw-app) "select")}
-   
+
    :whiteboard/pan               {:binding ["2" "w p"]
                                   :fn      #(.selectTool ^js (state/active-tldraw-app) "move")}
-   
+
    :whiteboard/portal            {:binding ["3" "w b"]
                                   :fn      #(.selectTool ^js (state/active-tldraw-app) "logseq-portal")}
 
@@ -85,13 +85,13 @@
 
    :whiteboard/highlighter       {:binding ["5" "w h"]
                                   :fn      #(.selectTool ^js (state/active-tldraw-app) "highlighter")}
-   
+
    :whiteboard/eraser            {:binding ["6" "w e"]
                                   :fn      #(.selectTool ^js (state/active-tldraw-app) "erase")}
-   
+
    :whiteboard/connector         {:binding ["7" "w c"]
                                   :fn      #(.selectTool ^js (state/active-tldraw-app) "line")}
-   
+
    :whiteboard/text              {:binding ["8" "w t"]
                                   :fn      #(.selectTool ^js (state/active-tldraw-app) "text")}
 
@@ -332,7 +332,7 @@
 
    :editor/toggle-undo-redo-mode   {:binding false
                                     :fn      undo-redo/toggle-undo-redo-mode!}
-   
+
    :editor/toggle-number-list      {:binding "t n"
                                     :fn #(state/pub-event! [:editor/toggle-own-number-list (state/get-selection-block-ids)])}
 
@@ -443,6 +443,9 @@
 
    :go/tomorrow                    {:binding "g t"
                                     :fn      journal-handler/go-to-tomorrow!}
+
+   :go/today                       {:binding "g k"
+                                    :fn      journal-handler/go-to-today!}
 
    :go/next-journal                {:binding "g n"
                                     :fn      journal-handler/go-to-next-journal!}
@@ -725,6 +728,7 @@
                           :go/whiteboards
                           :go/keyboard-shortcuts
                           :go/tomorrow
+                          :go/today
                           :go/next-journal
                           :go/prev-journal
                           :ui/toggle-document-mode
@@ -803,6 +807,7 @@
     :go/whiteboards
     :go/flashcards
     :go/tomorrow
+    :go/today
     :go/next-journal
     :go/prev-journal
     :go/keyboard-shortcuts]
@@ -889,7 +894,7 @@
     :whiteboard/group
     :whiteboard/ungroup
     :whiteboard/toggle-grid]
-   
+
    :shortcut.category/others
    [:pdf/previous-page
     :pdf/next-page
